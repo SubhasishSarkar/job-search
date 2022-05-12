@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from "react-router-dom"
 import Whyus from "./Whyus";
 import Trust from "./Trust";
 import { Button } from "@mui/material";
@@ -15,6 +15,7 @@ export default function Home() {
             <strong className="text_2">My</strong>
             <strong className="text_3">Jobs</strong>
           </div>
+          <Link to="/signup" style={{ textDecoration: 'none' }} >
           <Button
             style={{
               backgroundColor: "#43afff",
@@ -27,6 +28,7 @@ export default function Home() {
           >
             Get Started
           </Button>
+          </Link>
         </div>
         <div className="home_banner_image">
           <img src="/banner.png" alt="banner" />

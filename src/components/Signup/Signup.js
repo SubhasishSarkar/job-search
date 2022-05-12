@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 import "./Signup.css";
 
 export default function Signup() {
@@ -58,7 +58,7 @@ export default function Signup() {
               Sign Up
             </button>
           </div>
-          <p className="forgot-password text-right">Have an account? Login</p>
+          <p className="forgot-password text-right">Have an account? <Link to="/login" style={{ textDecoration: 'none' }}>Login</Link></p>
         </form>
       </div>
     </div>
