@@ -1,0 +1,25 @@
+.header__container {
+  background-color: #303f60;
+  width: 100%;
+  position: sticky;
+  height: 70px;
+  top: 0;
+  z-index: 100;
+}
+.header__wrapper {
+  margin: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #43afff;
+  padding: 10px;
+}
+.header__logo_conatiner {
+  color: white;
+}
+.logo__2 {
+  color: #43afff;
+}
+.header__login > button {
+  color: white;
+}

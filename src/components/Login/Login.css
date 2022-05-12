@@ -1,0 +1,20 @@
+.login__container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.login__wrapper {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 30px 36px #557da526;
+  border-radius: 20px;
+  padding: 30px;
+  width: 70%;
+}
+.lable_conatiner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login_button_container {
+  text-align: center;
+}
