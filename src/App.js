@@ -8,14 +8,13 @@ import Signup from "./components/Signup/Signup";
 function App() {
   return (
     <div className="App">
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<Layout />}>
           <Route exact path="/" element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
         </Route>
-      </Routes> */}
-      <Home />
+      </Routes>
     </div>
   );
 }
