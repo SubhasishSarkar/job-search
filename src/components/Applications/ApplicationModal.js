@@ -25,7 +25,7 @@ export default function ApplicationModal({ show, modalHandler, id }) {
       });
   }, [id]);
   return (
-    <Modal show={show} onHide={() => modalHandler(false)}>
+    <Modal show={show} onHide={() => modalHandler(false)} size="lg">
       <Modal.Header closeButton>
         <Modal.Title id="example-custom-modal-styling-title">
           Applicants for this job
@@ -34,7 +34,9 @@ export default function ApplicationModal({ show, modalHandler, id }) {
       <Modal.Body>
         {applications.length ? (
           <div className="applications__container">
-            <p>Total {applications.length} applications</p>
+            <p style={{ color: "#303F60", fontSize: 15, margin: 0 }}>
+              Total {applications.length} applications
+            </p>
             <div className="applications__wrapper">
               {" "}
               {applications.map((app) => {

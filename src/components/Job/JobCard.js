@@ -13,7 +13,11 @@ export default function JobCard({ job, modalHandler }) {
         <div className="jobcard__footer">
           <div>
             <LocationOnOutlinedIcon sx={{ color: "#43AFFF", fontSize: 14 }} />
-            <span style={{ fontSize: 14, color: "#303F60" }}>{location}</span>
+            <span
+              style={{ fontSize: 14, color: "#303F60", wordBreak: "break-all" }}
+            >
+              {location}
+            </span>
           </div>
           <Button
             style={{

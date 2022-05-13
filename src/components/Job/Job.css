@@ -14,6 +14,10 @@
   box-shadow: 0px 3px 6px #557da526;
   border-radius: 5px;
   padding: 15px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .jobcard__wrapper > h5 {
