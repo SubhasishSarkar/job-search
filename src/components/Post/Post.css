@@ -1,0 +1,12 @@
+.post__container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50 px;
+}
+.post__wrapper {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 30px 36px #557da526;
+  border-radius: 20px;
+  padding: 30px;
+  width: 70%;
+}

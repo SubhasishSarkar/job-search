@@ -5,7 +5,9 @@ import { jobsUrl } from "../../util/url";
 import JobCard from "./JobCard";
 import "./Job.css";
 import ApplicationModal from "../Applications/ApplicationModal";
-
+import NoJob from "../Logo/NoJob";
+import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 export default function Job() {
   const [jobs, setJobs] = useState([]);
   const [id, setId] = useState();
@@ -37,27 +39,53 @@ export default function Job() {
   }, []);
   return (
     <div>
-      <ApplicationModal
-        show={show}
-        modalHandler={() => {
-          console.log("close");
-          setShow(false);
-        }}
-        id={id}
-      />
+      {id && (
+        <ApplicationModal
+          show={show}
+          modalHandler={() => {
+            console.log("close");
+            setShow(false);
+          }}
+          id={id}
+        />
+      )}
       <h4 style={{ textAlign: "left", color: "#FFFFFF", fontSize: 22 }}>
         Jobs posted by you
       </h4>
       <div>
-        <div className="jobs__container">
+        <div>
           {jobs.length ? (
-            jobs.map((job) => {
-              return (
-                <JobCard key={job.id} job={job} modalHandler={modalHandler} />
-              );
-            })
+            <div className="jobs__container">
+              {jobs.map((job) => {
+                return (
+                  <JobCard key={job.id} job={job} modalHandler={modalHandler} />
+                );
+              })}
+            </div>
           ) : (
-            <p>No jobs</p>
+            <div className="nojob">
+              <NoJob />
+              <p>Your posted jobs will show here!</p>
+              <Link
+                to="/post"
+                style={{
+                  textDecoration: "none",
+                }}
+              >
+                <Button
+                  style={{
+                    backgroundColor: "#43afff",
+                    fontSize: 16,
+                    textTransform: "none",
+                    marginTop: 10,
+                  }}
+                  variant="contained"
+                  color="primary"
+                >
+                  Post a Job
+                </Button>
+              </Link>
+            </div>
           )}
         </div>
       </div>

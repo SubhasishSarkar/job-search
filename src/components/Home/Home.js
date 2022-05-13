@@ -1,10 +1,12 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 import Whyus from "./Whyus";
 import Trust from "./Trust";
 import { Button } from "@mui/material";
 import "./Home.css";
+import useAuth from "../../hooks/useAuth";
 export default function Home() {
+  const auth = useAuth();
   return (
     <div className="home__conatiner">
       <div className="home__banner">
@@ -15,19 +17,22 @@ export default function Home() {
             <strong className="text_2">My</strong>
             <strong className="text_3">Jobs</strong>
           </div>
-          <Link to="/signup" style={{ textDecoration: 'none' }} >
-          <Button
-            style={{
-              backgroundColor: "#43afff",
-              fontSize: 16,
-              textTransform: "none",
-              marginTop: 10,
-            }}
-            variant="contained"
-            color="primary"
+          <Link
+            to={auth ? "/home" : "/signup"}
+            style={{ textDecoration: "none" }}
           >
-            Get Started
-          </Button>
+            <Button
+              style={{
+                backgroundColor: "#43afff",
+                fontSize: 16,
+                textTransform: "none",
+                marginTop: 10,
+              }}
+              variant="contained"
+              color="primary"
+            >
+              Get Started
+            </Button>
           </Link>
         </div>
         <div className="home_banner_image">

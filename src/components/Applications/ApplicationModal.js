@@ -5,6 +5,7 @@ import { applicantionsUrl } from "../../util/url";
 import useAuth from "../../hooks/useAuth";
 import ApplicationCard from "./ApplicationCard";
 import "./Application.css";
+import NoApplication from "../Logo/NoJob";
 
 export default function ApplicationModal({ show, modalHandler, id }) {
   const { auth } = useAuth();
@@ -17,12 +18,17 @@ export default function ApplicationModal({ show, modalHandler, id }) {
         },
       })
       .then((res) => {
-        console.log(res.data.data);
-        setApplications([...res.data.data]);
+        const data = res.data;
+
+        data?.data && setApplications([...res.data.data]);
       })
       .catch((e) => {
         console.log(e);
       });
+
+    return () => {
+      setApplications([]);
+    };
   }, [id]);
   return (
     <Modal show={show} onHide={() => modalHandler(false)} size="lg">
@@ -45,7 +51,13 @@ export default function ApplicationModal({ show, modalHandler, id }) {
             </div>
           </div>
         ) : (
-          <p>No application</p>
+          <div>
+            <p>No application</p>
+            <div className="noapplication_wrapper">
+              <NoApplication />
+              <p>No applications available!</p>
+            </div>
+          </div>
         )}
       </Modal.Body>
     </Modal>

@@ -1,12 +1,12 @@
-import React, { useEffect, useState, useRef, useContext } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Button } from "@mui/material";
-import { Link , useNavigate, useLocation} from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { loginUrl } from "../../util/url";
 import "./Login.css";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 export default function Login() {
-  const {setAuth} = useAuth();
+  const { setAuth } = useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -16,35 +16,34 @@ export default function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errMsg,setErrMsg] = useState("");
-  const [success,setSuccess] = useState(false);
+  const [errMsg, setErrMsg] = useState("");
+  const [success, setSuccess] = useState(false);
 
-  const submitHandler = async(e)=>{
+  const submitHandler = async (e) => {
     e.preventDefault();
-    
-    try{
-      const res = await axios.post(loginUrl,{
-        "email": email,
-        "password": password
-      });
-      
-      setEmail('')
-      setPassword('')
-      console.log(res.data)
-      const data = res.data.data;
-      setAuth({...data});
-      setSuccess(res.data.success);
-      navigate(from,{replace:true});
-    }catch(e){
-      console.log(e)
-       setErrMsg("Incorrect email address or password.")
-    }
-    
-  }
 
-  useEffect(()=>{
-    setErrMsg('');
-  },[email,password]);
+    try {
+      const res = await axios.post(loginUrl, {
+        email: email,
+        password: password,
+      });
+
+      setEmail("");
+      setPassword("");
+      console.log(res.data);
+      const data = res.data.data;
+      setAuth({ ...data });
+      setSuccess(res.data.success);
+      navigate(from, { replace: true });
+    } catch (e) {
+      console.log(e);
+      setErrMsg("Incorrect email address or password.");
+    }
+  };
+
+  useEffect(() => {
+    setErrMsg("");
+  }, [email, password]);
 
   return (
     <div className="login__container">
@@ -52,7 +51,9 @@ export default function Login() {
         <form onSubmit={submitHandler}>
           <h3 style={{ fontSize: 22 }}>Login</h3>
           <div className="mb-3">
-            <label style={{ fontSize: 14 }}>Email address</label>
+            <label style={{ fontSize: 14, color: "#303F60" }}>
+              Email address
+            </label>
             <input
               required
               type="email"
@@ -64,7 +65,7 @@ export default function Login() {
           </div>
           <div className="mb-3">
             <div className="lable_conatiner">
-              <label style={{ fontSize: 14 }}>Password</label>
+              <label style={{ fontSize: 14, color: "#303F60" }}>Password</label>
               <p
                 className="forgot-password text-right"
                 style={{ fontSize: 14, color: "#43AFFF" }}
@@ -81,10 +82,8 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div style={{textAlign: "right"}}>
-            { !success && 
-              <p ref={errRef}>{errMsg}</p>
-            }
+          <div style={{ textAlign: "right" }}>
+            {!success && <p ref={errRef}>{errMsg}</p>}
           </div>
           <div className="login_button_container">
             <Button
@@ -103,10 +102,14 @@ export default function Login() {
             </Button>
             <div style={{ textAlign: "center" }}>
               <span style={{ fontSize: 14 }}>New to MyJobs? </span>
-              <Link 
+              <Link
                 to="/signup"
                 className="forgot-password text-right"
-                style={{ textDecoration: 'none', fontSize: 14, color: "#43AFFF" }}
+                style={{
+                  textDecoration: "none",
+                  fontSize: 14,
+                  color: "#43AFFF",
+                }}
               >
                 Create an account
               </Link>
