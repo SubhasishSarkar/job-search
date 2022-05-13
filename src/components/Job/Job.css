@@ -1,0 +1,35 @@
+.jobs__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.jobcard__container {
+  width: 32%;
+  margin-top: 2%;
+}
+
+.jobcard__wrapper {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #557da526;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.jobcard__wrapper > h5 {
+  text-align: left;
+  font: normal normal normal 17 px / 20 px Helvetica Neue;
+  letter-spacing: 0px;
+  color: #303f60;
+}
+.jobcard__wrapper > p {
+  text-align: left;
+  font: normal normal normal 14px/16px Helvetica Neue;
+  letter-spacing: 0px;
+  color: #303f60;
+}
+.jobcard__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

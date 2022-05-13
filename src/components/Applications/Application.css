@@ -1,0 +1,19 @@
+.applications__wrapper {
+  background: #e8eaed 0% 0% no-repeat padding-box;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1% 2%;
+}
+
+.application__container {
+  margin: 1% 0;
+  width: 49%;
+}
+.application__wrapper {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #303f6080;
+  border-radius: 5px;
+  padding: 10px;
+}
