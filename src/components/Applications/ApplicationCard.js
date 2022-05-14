@@ -3,9 +3,9 @@ import "./Application.css";
 export default function ApplicationCard({ application }) {
   const { name, email, skills } = application;
   return (
-    <div class="application__container">
-      <div class="application__wrapper">
-        <div class="header">
+    <div className="application__container">
+      <div className="application__wrapper">
+        <div className="header">
           <div className="profile">
             <div className="profile_initial">{name[0].toUpperCase()}</div>
           </div>
